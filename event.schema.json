@@ -1,0 +1,141 @@
+{
+  /**
+   * Project's JWT
+   */
+  "token": "AAAABB...wER232r2wer",
+
+  /**
+   * Type of an event
+   * Example: "error/javascript", "error/php", "log/access", "metrika/touch"
+   */
+  "catcherType": "error/php",
+
+  /**
+   * Event data
+   */
+  "payload": {
+    /**
+     * Event title
+     */
+    "title": "Field `blocks` is missing",
+
+    /**
+     * Event datetime
+     */
+    "timestamp": 1545203808,
+
+    /**
+     * Event severity level
+     */
+    "level": 16,
+
+    /**
+     * @optional
+     * Event stack array from the latest call to the earliest
+     */
+    "backtrace": [
+      {
+        /**
+         * Source filepath
+         */
+        "file": "/var/www/codex/vendor/codex-team/editor.js/EditorJS/EditorJS.php",
+
+        /**
+         * Called line
+         */
+        "line": 77,
+
+        /**
+         * @optional
+         * Part of source code file near the called line
+         */
+        "sourceCode": [
+          {
+            /**
+             * Line's number
+             */
+            "line": 76,
+
+            /**
+             * Line's content
+             */
+            "content": "         if (!isset($data['blocks'])) {"
+          },
+          {
+            "line": 77,
+            "content": "             throw new EditorJSException('Field `blocks` is missing');"
+          },
+          {
+            "line": 78,
+            "content": "         }"
+          }
+        ]
+      },
+
+      {
+        "file": "/var/www/codex/application/classes/Controller/Articles/Index.php",
+        "calledLine": "191",
+        "sourceCode": [
+          {
+            "line": "190",
+            "content": "     {"
+          },
+          {
+            "line": "191",
+            "content": "         $editor = new EditorJS($content, Model_Article::getEditorConfig());"
+          },
+          {
+            "line": "192",
+            "content": "         $blocks = $editor->getBlocks();"
+          }
+        ]
+      }
+
+      // ...
+    ],
+
+    /**
+     * @optional
+     * Any additional data to be showen on the event's page
+     */
+    "get": {
+      // ...
+    },
+
+    "post": {
+      "text": "Hello, World!",
+      "is_published": false
+      // ...
+    },
+
+    "headers": {
+      // ...
+    },
+
+    /**
+     * @optional
+     * Source code version identifier
+     * Version, modify timestamp or both of them combined
+     */
+    "release": "",
+
+    /**
+     * @optional
+     * Current authenticated user
+     */
+    "user": {
+      "id": "1233",
+      "name": "Vitaly Guryn",
+      "url": "https://codex.so/user/123",
+      "photo": "https://leonardo.osnova.io/66b0786b-c5f7-ecde-6fa1-60c8462fab42/-/scale_crop/60x60/center/"
+    },
+
+    /**
+     * @optional
+     * Any additional data
+     */
+    "context": {
+      // any additional data
+    }
+  }
+}
