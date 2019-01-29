@@ -1,0 +1,1 @@
+# Hawk event database specification
