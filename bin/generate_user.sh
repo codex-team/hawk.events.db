@@ -45,9 +45,9 @@ PASSWD=$(generate_password)
 echo -e "Credentials:"
 echo -e "$USER:$PASSWD"
 
-EXEC_CMD="db.createUser({ user: \"$USER\", pwd: \"$PASSWD\", roles: [ { role: \"readWrite\", db: \"$USER\"}]});"
+EVAL_CMD="db.createUser({ user: '$USER', pwd: '$PASSWD', roles: [ { role: 'readWrite', db: '$USER'}]});"
 
-# echo $EXEC_CMD
+# echo $EVAL_CMD
 
 cmd="mongo"
 
@@ -63,8 +63,8 @@ if [ ! -z "$MONGO_INITDB_ROOT_PASSWORD" ] ; then
     cmd="$cmd -p $MONGO_INITDB_ROOT_PASSWORD"
 fi
 
-cmd="$cmd --exec $EXEC_CMD"
+cmd="$cmd --eval \"$EVAL_CMD\""
 
-# echo $cmd
+echo $cmd
 
-exec "$cmd"
+eval $cmd
